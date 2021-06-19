@@ -38,4 +38,9 @@ jobs:
           context: base
           push: true
           tags: danislab/base:latest
-  
+      - name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: 3D-Lithium
+          push: true
+          tags: danislab/3D-Lithium:latest
