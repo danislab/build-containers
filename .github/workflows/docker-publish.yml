@@ -37,5 +37,5 @@ jobs:
         with:
           context: base
           push: true
-          tags: danislab/build-containers:latest
+          tags: danislab/base:latest
   
