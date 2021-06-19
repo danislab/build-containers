@@ -35,6 +35,7 @@ jobs:
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
         with:
+          context: base
           push: true
           tags: danislab/build-containers:latest
   
