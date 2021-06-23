@@ -6,18 +6,13 @@ name: Docker Hub
 # documentation.
 
 on:
-  push:
-    branches: [ main ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-    paths: [ '.github/workflow/docker-publish.yml' ]
-  pull_request:
-    branches: [ main ]
-    tags: [ 'v*.*.*' ]
-    paths: [ '.github/workflow/docker-publish.yml' ]
-  schedule:
-    - cron: '0 12 15 * *' 
   workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
