@@ -3,9 +3,15 @@ FROM danislab/base:latest
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get update \
-    && apt-get install -y wget \
+    && apt-get install -y cmake-curses-gui \
+    && apt-get install -y cxxtest \
+    && apt-get install -y doxygen \
+    && apt-get install -y doxygen-doc \
+    && apt-get install -y doxygen-gui \
+    && apt-get install -y graphviz \
     && apt-get install -y g++-mingw-w64 \
     && apt-get install -y libeigen3-dev \
+    && apt-get install -y wget \
     && rm -rf /var/lib/apt/lists/*
 
 RUN set -ex; \
