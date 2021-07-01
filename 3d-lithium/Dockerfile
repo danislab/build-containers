@@ -16,6 +16,7 @@ RUN apt-get update && \
     g++-mingw-w64 \
     git \
     graphviz \
+    iputils-ping \
     libaudit-dev \
     libblkid-dev \
     libboost-all-dev \
