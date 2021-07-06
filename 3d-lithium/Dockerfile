@@ -4,20 +4,22 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN apt-get update && \
     apt-get -y install \
+    apt-transport-https \
     autotools-dev \
     build-essential \
+    ca-certificates \
     cmake-curses-gui \
+    curl \
     cxxtest \
     doxygen \
     doxygen-doc \
     doxygen-gui \
     e2fslibs-dev \
+    graphviz \
+    git \
     g++ \
     g++-mingw-w64 \
-    git \
-    graphviz \
     iputils-ping \
-    libaudit-dev \
     libblkid-dev \
     libboost-all-dev \
     libbz2-dev \
@@ -25,10 +27,15 @@ RUN apt-get update && \
     libicu-dev \
     libssl-dev \
     net-tools \
+    ntp \
+    openssl \
     python-dev \
+    python-setuptools \
     python3-pip \
     wget \
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip install numpy matplotlib future
 
 RUN set -ex; \
     mkdir -p /usr/src/tmp; \
@@ -51,5 +58,3 @@ RUN set -ex; \
     ./b2 --user-config=./user-config.jam --prefix=./boost-x64 target-os=windows address-model=64 toolset=gcc variant=release install || :;
 
 ENV BOOST_ROOT=/usr/src/tmp/boost_1_75_0/boost-x64/include$BOOST_ROOT
-
-RUN pip install numpy matplotlib
